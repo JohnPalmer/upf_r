@@ -1,0 +1,367 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>R Training</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+
+		<!-- In between the <div="reveal"> and the <div class="slides">-->
+		<header style="position: absolute;top: 5px; left: 5px; right: 5px; text-align: center; z-index:500; font-size:50px; color:white; padding: 5px; font-family: 'League Gothic', Impact, sans-serif"></header>
+		<footer style="position: absolute;bottom: 5px; left: 5px; text-align: center; z-index:500; font-size:12px;  padding: 5px; font-family: Arial, Helvetica, sans-serif"></footer>
+
+
+		<div class="slides">
+
+			<section>
+				<h1>R Training</h1>
+				<p><a href="http://johnrbpalmer.com">John Palmer</a></p>
+			</section>
+
+			<section>
+				<h2>R Overview</h2>
+				<ul>
+					<li>free software</li>
+					<li>environment for statistical computing and graphics</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>R Compared to</h2>
+				<ul>
+					<li>Excel</li>
+					<li>Stata</li>
+					<li>Python</li>
+					<li>C++, Java, or Fortran</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Using R</h2>
+				<ul>
+					<li>Command Line (REPL)</li>
+					<li>Scripts</li>
+					<li>Batch processing</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Text Editors</h2>
+				<ul>
+					<li>Sublime Text</li>
+					<li>Notepad++</li>
+					<li>Emacs</li>
+					<li>vim</li>
+					<li>anything else</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Integrated Development Environments</h2>
+				<ul>
+					<li>RStudio</li>
+					<li>Eclipse</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Getting Help</h2>
+			<pre><code>
+			help(lm)
+
+			help.start()
+			</code></pre>
+			</section>
+
+			<section>
+				<h2>Using Tab in RStudio</h2>
+				In the text editor, type <b><code>lm</code></b> then press the tab key.
+			</section>
+
+
+			<section>
+				<h2>Simple Examples</h2>
+			<pre><code>
+			1 + 1
+			x = 1 + 1
+			y = x + 1
+			z = c(x, y)
+			z[1]
+			</code></pre>
+			</section>
+
+			<section>
+				<h2>Operators</h2>
+				Try typing <b><code>??Operators</code></b>
+			</section>
+
+			<section>
+				<h2>Operators</h2>
+				What does the following do?
+			<pre><code>
+			2^2
+			</code></pre> 
+			</section>
+
+			<section>
+				<h2>Operators</h2>
+				What does the following do?
+			<pre><code>
+			2**2
+			</code></pre> 
+			</section>
+
+			<section>
+				<h2>Operators</h2>
+				What does the following do?
+			<pre><code>
+			10 < 4
+			</code></pre> 
+			</section>
+
+			<section>
+				<h2>Operators</h2>
+				What does the following do?
+			<pre><code>
+			10 != 4
+			</code></pre> 
+			</section>
+
+			<section>
+				<h2>Operators</h2>
+				What does the following do?
+			<pre><code>
+			10 == 4
+			</code></pre> 
+			</section>
+
+			<section>
+				<h2>Operators</h2>
+				What do the following do?
+			<pre><code>
+			x = 4
+			x <- 4
+			4 -> x
+			</code></pre> 
+			</section>
+
+			<section>
+				<h2>Operators</h2>
+				Careful not to confuse these with assignment:
+			<pre><code>
+			x == 4
+			x <= 4
+			</code></pre> 
+			</section>
+
+
+			<section>
+				<h2>Objects</h2>
+				<p>Types (classes)</p>
+				<ul>
+					<li>vectors</li>
+					<li>matrices</li>
+					<li>arrays</li>
+					<li>factors</li>
+					<li>lists</li>
+					<li>data frames</li>
+					<li>functions</li>
+					</ul>
+			</section>
+
+			<section>
+				<h2>Objects</h2>
+				<p>Atomic vs. Recursive</p>
+			</section>
+
+			<section>
+				<h2>Objects</h2>
+				<p>Modes</p>
+				<ul>
+					<li>logical</li>
+					<li>numeric</li>
+					<li>character</li>
+					<li>complex</li>
+					<li>raw</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Vectors</h2>
+				<ul>
+					<li>atomic (all elements same mode)</li>
+					<li>creation, assignment, retrieval</li>
+					<li>coercion</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Vectors</h2>
+				Try this:
+			<pre><code>
+			a <- seq(1, 10, 1)
+			a <- 1:10
+			a[3]
+			a[3] <- 100
+			b <- rnorm(100)
+			c <- as.character(a)
+			d <- c(a, "test")
+			e <- c(a, NA)
+			is.na(e)
+			</code></pre>
+			What is going on in each line?
+			</section>
+
+			<section>
+				<h2>Matrices and other arrays</h2>
+				<ul>
+					<li>atomic (all elements same mode)</li>
+					<li>creation, assignment, retrieval</li>
+					<li>coercion</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Matrices and other arrays</h2>
+				Try this:
+			<pre><code>
+			a <- matrix(1:4, 2, 2)
+			a[3]
+			a[1,2]
+			a[3] <- 100
+			b <- as.character(a)
+			d <- a
+			d[1,2] = "test"
+			e = a
+			e[1,2] <- NA
+			is.na(e)
+			</code></pre>
+			What is going on in each line?
+			</section>
+
+			<section>
+				<h2>Matrices and other arrays</h2>
+				Try this:
+			<pre><code>
+			a <- array(1:12, c(2, 2, 3))
+			a[3]
+			a[1,2,1]
+			</code></pre>
+			What index of <b><code>a</code></b> will return the number 8?
+			</section>
+
+			<section>
+				<h2>Lists</h2>
+				<ul>
+					<li>Recursive</li>
+					<li>creation and assignment</li>
+				</ul>
+			</section>
+
+
+			<section>
+				<h2>Lists</h2>
+				Try this:
+			<pre><code>
+			a <- list(1, 2, "test", FALSE, NA)
+			a[3]
+			a[[3]]
+			b = list(first=1, second=2, third="test")
+			b$first
+			b[["first"]]
+			b[first]
+			</code></pre>
+			What is going on in each line?
+			</section>
+
+			<section>
+				<h2>Data Frames</h2>
+				Try this:
+			<pre><code>
+			a <- data.frame(first_name=c("Joe", "Mary", "Ed"), age=c(29, 40, 32), treatment=c(TRUE, FALSE, TRUE))
+			a[1,]
+			a[1, 1]
+			a[ , 2]
+			a[1, 2]
+			a$age
+			age
+			attach(a)
+			age
+			detach(a)
+			</code></pre>
+			What is going on in each line?
+			</section>
+
+			<section>
+				<h2>Importing data</h2>
+				<ul>
+				<li>Go to the Chicago Data Portal and download the Crimes - 2017 dataset as a csv file. (<a href="https://data.cityofchicago.org/Public-Safety/Crimes-2017/d62x-nvdr">Link</a>)</li>
+				<li>Import the file into R. (Hint: use the function <b><code>import.csv</code></b>)</li>
+				<li>Import a data set you work with for your research</li>
+				<li>Try using the <b><code>fread</code></b> function in the data.table package</li>
+				</ul>
+			</section>
+
+			<section>
+			<h2>More Exploration</h2>
+			<ul>
+			<li>Try working through <a href="demo_session1.R">this demonstration</a></li>
+
+</ul>
+</section>
+
+		</div>
+
+	</div>
+</body>
+<!-- Footers -->
+<style>.footer_SDS footer:after { content: "Sutton et al., Una Ligera Introduccion a GIS (2009), http://docs.qgis.org/2.2/es/docs/gentle_gis_introduction/."; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+<style>.footer_layer_stack footer:after { content: "Layer Stack, Ahlzen, CC BY-SA 2.0, http://wiki.openstreetmap.org/wiki/File:Layer-stack.jpg"; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+<!-- End Footers -->
+
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/math/math.js', async: true },
+				     // Zoom in and out with Alt+click
+				     { src: 'plugin/zoom-js/zoom.js', async: true },
+
+
+				     ]
+				 });
+				</script>
+			</body>
+			</html>
+

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#################################################################\n# Demonstration R Session\n# Taken from Venables et al., \n# An Introduction to R, at \n# https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf\n################################################################\n\nhelp.start() # Start the HTML interface toon-line help (using a web browser available at your machine). \n\nx <- rnorm(50)\ny <- rnorm(x) # Generate two pseudo-random normal vectors of x- and y-coordinates.\n\nplot(x, y) # Plot the points in the plane. A graphics window will appear automatically.\n\nls() # See which R objects are now in the R workspace.\n\nrm(x, y) # Remove objects no longer needed. \n\nx <- 1:20 # Make x=(1,2,...,20).\n\nw <- 1 + sqrt(x)/2 # A ‘weight’ vector of standard deviations.\n\ndummy <- data.frame(x=x, y= x + rnorm(x)*w) \ndummy # Make a data frame of two columns, x and y, and look at it.\n\nfm <- lm(y ~ x, data=dummy)\nsummary(fm) # Fit a simple linear regression and look at the analysis. With y to the left of the tilde, we are modelling y dependent on x.\n\nfm1 <- lm(y ~ x, data=dummy, weight=1/w^2)\nsummary(fm1) # Since we know the standard deviations, we can do a weighted regression.\n\nattach(dummy) # Make the columns in the data frame visible as variables.\n\nlrf <- lowess(x, y) # Make a nonparametric local regression function.\n\nplot(x, y) # Standard point plot.\n\nlines(x, lrf$y) # Add in the local regression.\n\nabline(0, 1, lty=3) # The true regression line: (intercept 0, slope 1).\n\nabline(coef(fm)) # Unweighted regression line.\n\nabline(coef(fm1), col = \"red\") # Weighted regression line.\n\ndetach() # Remove data frame from the search path.\n\nplot(fitted(fm), resid(fm), xlab=\"Fitted values\", ylab=\"Residuals\", main=\"Residuals vs Fitted\") # A standard regression diagnostic plot to check for heteroscedasticity. Can you see it?\n\nqqnorm(resid(fm), main=\"Residuals Rankit Plot\") # A normal scores plot to check for skewness, kurtosis and outliers. (Not very useful here.)\n\nrm(fm, fm1, lrf, x, dummy) # Clean up again.\n\n",
+    "created" : 1496220238597.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "25072269",
+    "id" : "CF90A45E",
+    "lastKnownWriteTime" : 1496221182,
+    "last_content_update" : 1496221182142,
+    "path" : "~/Dropbox/upf_r/demo_session1.R",
+    "project_path" : "demo_session1.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
