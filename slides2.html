@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>R Training</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+
+		<!-- In between the <div="reveal"> and the <div class="slides">-->
+		<header style="position: absolute;top: 5px; left: 5px; right: 5px; text-align: center; z-index:500; font-size:50px; color:white; padding: 5px; font-family: 'League Gothic', Impact, sans-serif"></header>
+		<footer style="position: absolute;bottom: 5px; left: 5px; text-align: center; z-index:500; font-size:12px;  padding: 5px; font-family: Arial, Helvetica, sans-serif"></footer>
+
+
+		<div class="slides">
+
+			<section>
+				<h1>R Training</h1>
+				<h3>Session 2</h3>
+				<p><a href="http://johnrbpalmer.com">John Palmer</a></p>
+			</section>
+
+			<section>
+				<h2>Functions</h2>
+				<ul>
+					<li>Set of commands for doing something, that may or may not take some input and that generates some output.</li>
+					<li>Called by typing the function name, followed by parentheses which may contain arguments that are passed to the function.</li>
+					<li>Entering the function name without parentheses returns the function's code. (Try this for one of the functions you have learned.)</li>
+					<li>Creating a function involves specifying arguments (if any), listing the expressions to be evaluated, and specifying the value(s) to be returned</li>
+				</ul>
+			</section>
+
+
+
+			<section>
+				<h2>Functions</h2>
+				Writing your own function -- example:
+			<pre><code>
+			my_super_function <- function(a, b=10){
+				x1 <- a*b
+				x2 <- x1-45
+				x3 <- x2^2
+				return(x3)
+			}
+			</code></pre> 
+			</section>
+
+
+			<section>
+				<h2>Basic Organization and Workflow</h2>
+				<ul>
+					<li>Create a directory for each data analysis project you are working on .</li>
+					<li>Use the RStudio projects to automatically start R with the correct working directory for the project; or use <b><code>setwd()</code></b> to set the desired working directory.</li>
+					<li>Use file names that mean something.</li>
+					<li>Decide if you want to keep the <b><code>.RData</code></b> file when closing sessions. (I usually do not keep this.).</li>
+				</ul>
+
+			</section>
+
+			<section>
+				<h2>Packages</h2>
+				<ul>
+					<li>Install using <b><code>install.packages()</code></b> function.</li>
+					<li>Load using <b><code>library()</code></b> function or <b><code>require()</code></b>function.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Packages</h2>
+				<p>Install then load the Hmisc and tidyverse package</p>
+			
+			<pre><code>
+			install.packages(c("Hmisc", "tidyverse"))
+			library(Hmisc)
+			library(tidyverse)
+			</code></pre> 
+			</section>
+
+
+			<section>
+				<h2>Data Analysis</h2>
+				
+				<img src="images/analysis_flow.png" style="background:none; border:none; box-shadow:none;">
+				<small>Adapted from <a href="http://r4ds.had.co.nz/">Garrett Grolemund & Hadley Wickham, R for Data Science</a>.</small>
+
+			</section>
+
+			<section>
+				<h2>Wrangling</h2>
+				<ul>
+					<li>For practice, I have taken a random sample of 1000 records from the Chicago 2017 crimes database.</li>
+					<li>Download it from <a href="crimes2017_sample.csv">here</a> and place it in your the working directory for this class project.</li>
+					<li>Import it into R using the <b><code>read.csv</code></b> function, assigning it to a variable called <b><code>D</code></b>.</li>					
+				</ul>
+			</section>
+
+			<section>
+				<h2>Wrangling</h2>
+				<ul>
+					<li>What should we do with this data?</li>
+				</ul>
+			</section>
+
+
+			<section>
+				<h2>Wrangling</h2>
+				<ul>
+					<li>Follow along with <a href="session2.R">this</a> demonstration script.</li>
+				</ul>
+			</section>
+
+
+
+		</div>
+
+	</div>
+</body>
+<!-- Footers -->
+<style>.footer_SDS footer:after { content: "Sutton et al., Una Ligera Introduccion a GIS (2009), http://docs.qgis.org/2.2/es/docs/gentle_gis_introduction/."; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+<style>.footer_layer_stack footer:after { content: "Layer Stack, Ahlzen, CC BY-SA 2.0, http://wiki.openstreetmap.org/wiki/File:Layer-stack.jpg"; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+<!-- End Footers -->
+
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/math/math.js', async: true },
+				     // Zoom in and out with Alt+click
+				     { src: 'plugin/zoom-js/zoom.js', async: true },
+
+
+				     ]
+				 });
+				</script>
+			</body>
+			</html>
+
